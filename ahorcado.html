@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ahorcado</title>
+	<script   src="https://code.jquery.com/jquery-3.3.1.js"   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="   crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="./ahorcado.css">
+</head>
+<body>
+	<h1 class="oportunities" >Oportunities:</h1>
+	<p class="oportunityNumber" id="oportunityNumber">4</p>
+	<img class="img" src="http://www.badram.club/wp-content/uploads/2017/11/1.png">
+	<h1>Challenge:</h1>
+	<p id="answer">_ _ _ _ _ _</p>
+	<h1>trys:</h1>
+	<p id="answer-check">_ _ _ _ _ _</p>
+	<input id="answer-box" type="text">
+	<button id="button">Try!</button>
+	<script>
+		let words = ["escapology", "dog", "fucker", "climbing", "nudibranch", "grandchild", "crashing", "flugelhorn", "mother", "pluperfect", "hans", 'flammenwerffer'];
+		let chosenWord = words[Math.floor(Math.random()*words.length)];
+		let answerArray = [];
+		
+		
+		wordCount = " _ ".repeat(chosenWord.length);
+		answerArray.length = chosenWord.length;
+		answerArray.fill(" _ ")
+
+		console.log(answerArray);
+		console.log(chosenWord);
+
+		$("#answer").html(wordCount);
+		$("#answer-check").html(wordCount);
+		
+		$("#button").click(function () {
+			let answer = document.getElementById("answer-box").value;
+			let counter = chosenWord.length
+			for (var i = 0; i < chosenWord.length; i++) {
+				if (answer == chosenWord.charAt(i)) {
+					answerArray[i] = chosenWord.charAt(i);
+					console.log(answerArray);
+					$("#answer-check").html(answerArray);
+					if (answerArray.join("") == chosenWord) {
+							alert("You made it!")
+					}
+				} else {
+					counter = counter - 1
+					if (counter == 0) {
+						alert("You got the wrong letter")
+						let display = $("#oportunityNumber");
+						let opLeft = Number(display.html());
+						display.html(opLeft - 1);
+						if (opLeft == 1) {
+							alert("You'r dead!")
+						}
+					}
+				}
+			}
+		});
+	</script>
+</body>
+</html>
+

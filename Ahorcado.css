@@ -1,0 +1,31 @@
+.oportunities {
+	color: gray;
+	display: inline-block;
+	font-size: 40px
+}
+
+.oportunityNumber {
+	color: gray;
+	display: inline-block;
+	font-size: 40px
+}
+
+img {
+	display: block;
+	height: 400px
+}
+
+button {
+	height: 50px;
+	width: 100px;
+	background-color: lightblue
+}
+
+input {
+	color: black;
+	border-color: black;
+}
+
+.answer {
+	font-size: 40px
+}
